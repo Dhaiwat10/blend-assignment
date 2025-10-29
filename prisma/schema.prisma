@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RebalanceEvent {
+  id        String   @id @default(cuid())
+  timestamp DateTime
+  vaultId   String
+  hfBefore  Float
+  hfAfter   Float
+  plan      Json
+  createdAt DateTime @default(now())
+
+  @@index([vaultId])
+  @@index([timestamp])
+  @@unique([timestamp, vaultId])
+}
+
+model Vault {
+  id               String   @id @default(cuid())
+  vaultId          String   @unique
+  collateralAsset  String
+  collateralAmount Decimal  @db.Decimal(38, 18)
+  debtAsset        String
+  debtAmount       Decimal  @db.Decimal(38, 18)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([vaultId])
+}
+
+model Price {
+  symbol    String   @id
+  value     Decimal  @db.Decimal(38, 18)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+

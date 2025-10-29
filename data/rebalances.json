@@ -1,0 +1,174 @@
+[
+  {
+    "timestamp": "2025-10-29T16:51:36.930Z",
+    "vaultId": "VAULT-B-WEETH-BETH",
+    "hfBefore": 0.8619718309859155,
+    "hfAfter": 1.25,
+    "plan": {
+      "trigger": {
+        "healthFactor": 0.8619718309859155,
+        "reason": "Below rebalance threshold of 1.15"
+      },
+      "currentState": {
+        "collateral": {
+          "asset": "weETH",
+          "amount": "5.000000",
+          "valueUSD": 18000
+        },
+        "debt": {
+          "asset": "bETH",
+          "amount": "5.000000",
+          "valueUSD": 17750
+        }
+      },
+      "executionPlan": {
+        "targetHealthFactor": 1.25,
+        "actions": [
+          {
+            "step": 1,
+            "type": "withdrawCollateral",
+            "amount": "4.8589 weETH",
+            "reason": "Withdraw collateral to swap for debt repayment"
+          },
+          {
+            "step": 2,
+            "type": "swap",
+            "fromToken": "weETH",
+            "fromAmount": "4.858907",
+            "toToken": "WETH",
+            "expectedAmount": "4.902705",
+            "minAmount": "4.878192",
+            "slippage": "0.50%",
+            "dex": "Uniswap V3",
+            "route": "weETH -> WETH"
+          },
+          {
+            "step": 3,
+            "type": "repayDebt",
+            "asset": "bETH",
+            "amount": "4.902705",
+            "reason": "Reduce debt to increase health factor"
+          }
+        ],
+        "projectedOutcome": {
+          "newCollateralAmount": "0.1411 weETH",
+          "newDebtAmount": "0.0973 bETH",
+          "estimatedHealthFactor": 1.25,
+          "gasEstimate": "~350,000"
+        },
+        "atomicExecution": {
+          "type": "multicall",
+          "bundlerCompatible": "Morpho Bundler",
+          "calls": [
+            {
+              "target": "0x04c0599ae5a44309205625474389146123841773",
+              "value": "0x0",
+              "data": "0x095ea7b3000000000000000000000000e592427a0aece92de3edee1f18e0157c05861564000000000000000000000000000000000000000000000000436e4dbdcd9e1a2f"
+            },
+            {
+              "target": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+              "value": "0x0",
+              "data": "0xdb3e219800000000000000000000000004c0599ae5a44309205625474389146123841773000000000000000000000000420000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000111111111111111111111111111111111111111100000000000000000000000000000000000000000000000000000000690248700000000000000000000000000000000000000000000000004409e854a4a2d838000000000000000000000000000000000000000000000000436e4dbdcd9e1a2f0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            {
+              "target": "0x4200000000000000000000000000000000000006",
+              "value": "0x0",
+              "data": "0x095ea7b3000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcd0000000000000000000000000000000000000000000000004409e854a4a2d838"
+            },
+            {
+              "target": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+              "value": "0x0",
+              "data": "0x6e553f650000000000000000000000000000000000000000000000004409e854a4a2d838000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcd"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2025-10-29T16:54:28.290Z",
+    "vaultId": "VAULT-B-WEETH-BETH",
+    "hfBefore": 0.8619718309859155,
+    "hfAfter": 1.25,
+    "plan": {
+      "trigger": {
+        "healthFactor": 0.8619718309859155,
+        "reason": "Below rebalance threshold of 1.15"
+      },
+      "currentState": {
+        "collateral": {
+          "asset": "weETH",
+          "amount": "5.000000",
+          "valueUSD": 18000
+        },
+        "debt": {
+          "asset": "bETH",
+          "amount": "5.000000",
+          "valueUSD": 17750
+        }
+      },
+      "executionPlan": {
+        "targetHealthFactor": 1.25,
+        "actions": [
+          {
+            "step": 1,
+            "type": "withdrawCollateral",
+            "amount": "4.8589 weETH",
+            "reason": "Withdraw collateral to swap for debt repayment"
+          },
+          {
+            "step": 2,
+            "type": "swap",
+            "fromToken": "weETH",
+            "fromAmount": "4.858907",
+            "toToken": "WETH",
+            "expectedAmount": "4.902705",
+            "minAmount": "4.878192",
+            "slippage": "0.50%",
+            "dex": "Uniswap V3",
+            "route": "weETH -> WETH"
+          },
+          {
+            "step": 3,
+            "type": "repayDebt",
+            "asset": "bETH",
+            "amount": "4.902705",
+            "reason": "Reduce debt to increase health factor"
+          }
+        ],
+        "projectedOutcome": {
+          "newCollateralAmount": "0.1411 weETH",
+          "newDebtAmount": "0.0973 bETH",
+          "estimatedHealthFactor": 1.25,
+          "gasEstimate": "~350,000"
+        },
+        "atomicExecution": {
+          "type": "multicall",
+          "bundlerCompatible": "Morpho Bundler",
+          "calls": [
+            {
+              "target": "0x04c0599ae5a44309205625474389146123841773",
+              "value": "0x0",
+              "data": "0x095ea7b3000000000000000000000000e592427a0aece92de3edee1f18e0157c05861564000000000000000000000000000000000000000000000000436e4dbdcd9e1a2f"
+            },
+            {
+              "target": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+              "value": "0x0",
+              "data": "0xdb3e219800000000000000000000000004c0599ae5a44309205625474389146123841773000000000000000000000000420000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000001f40000000000000000000000001111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000006902491c0000000000000000000000000000000000000000000000004409e854a4a2d838000000000000000000000000000000000000000000000000436e4dbdcd9e1a2f0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            {
+              "target": "0x4200000000000000000000000000000000000006",
+              "value": "0x0",
+              "data": "0x095ea7b3000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcd0000000000000000000000000000000000000000000000004409e854a4a2d838"
+            },
+            {
+              "target": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+              "value": "0x0",
+              "data": "0x6e553f650000000000000000000000000000000000000000000000004409e854a4a2d838000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcd"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

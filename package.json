@@ -1,0 +1,35 @@
+{
+  "name": "blend-risk-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "typecheck": "tsc -p . --noEmit",
+    "test": "bun test",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy",
+    "prisma:push": "prisma db push",
+    "health": "curl -s 'http://localhost:3000/health?pretty=1'",
+    "vaults": "curl -s 'http://localhost:3000/vaults?pretty=1'",
+    "vault:a": "curl -s 'http://localhost:3000/vaults/VAULT-A-WSTETH-BUSDC?pretty=1'",
+    "vault:b": "curl -s 'http://localhost:3000/vaults/VAULT-B-WEETH-BETH?pretty=1'",
+    "rebalances": "curl -s 'http://localhost:3000/rebalances?pretty=1'",
+    "simulate": "curl -s -X POST 'http://localhost:3000/simulate?pretty=1'",
+    "simulate:extra": "curl -s -X POST 'http://localhost:3000/simulate?extraTicks=5&pretty=1'",
+    "execute:all": "curl -s -X POST 'http://localhost:3000/execute?pretty=1' -H 'content-type: application/json' -d '{\"applyAll\":true}'"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "hono": "^4.5.7",
+    "viem": "^2.38.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "bun-types": "^1.3.1",
+    "prisma": "^6.18.0",
+    "typescript": "^5.4.5"
+  }
+}
